@@ -4,10 +4,17 @@ export type Certification = {
   issuer: string;
   /** Set for certifications still in progress (0–100). */
   progress?: number;
+  /** Public credential page (e.g. Credly) shown as a "Verify" button. */
+  verifyUrl?: string;
 };
 
 export const certifications: Certification[] = [
-  { short: 'CWES', name: 'Certified Web Exploitation Specialist', issuer: 'Hack The Box' },
+  {
+    short: 'CWES',
+    name: 'Certified Web Exploitation Specialist',
+    issuer: 'Hack The Box',
+    verifyUrl: 'https://www.credly.com/badges/884a9f08-1d59-4b91-b74b-9e7d3bdce2f2/public_url',
+  },
   { short: 'CAPT', name: 'Certified Android Penetration Tester', issuer: 'Mobile Hacking Lab', progress: 66 },
   { short: 'CMPen-Android', name: 'Certified Mobile Application Penetration Tester', issuer: 'The SecOps Group' },
   { short: 'CNSP', name: 'Certified Network Security Practitioner', issuer: 'The SecOps Group' },
