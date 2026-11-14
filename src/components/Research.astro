@@ -63,16 +63,9 @@ const categories: Category[] = ['Tooling', 'Maintained Fork', 'CTF Challenge', '
   </div>
 </section>
 
-<style>
-  .filter-btn[aria-pressed='true'] {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-  }
-</style>
-
 <script>
-  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const cards = document.querySelectorAll<HTMLElement>('.project');
+  const buttons = document.querySelectorAll<HTMLButtonElement>('#research .filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#research .project');
   buttons.forEach((btn) =>
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;

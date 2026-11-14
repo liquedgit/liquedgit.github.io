@@ -60,6 +60,11 @@
   @apply btn border-line text-ink hover:border-accent hover:text-accent;
 }
 
+.filter-btn[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 .grid-bg {
   background-image:
     linear-gradient(to right, rgb(34 43 55 / 0.35) 1px, transparent 1px),
