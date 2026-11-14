@@ -6,7 +6,12 @@ export type Certification = {
   progress?: number;
   /** Public credential page (e.g. Credly) shown as a "Verify" button. */
   verifyUrl?: string;
+  /** Shown with a copy button when the verify page needs the ID entered manually. */
+  credentialId?: string;
+  issued?: string;
 };
+
+const secOpsValidation = 'https://pentestingexams.com/certificate-validation/';
 
 export const certifications: Certification[] = [
   {
@@ -16,10 +21,38 @@ export const certifications: Certification[] = [
     verifyUrl: 'https://www.credly.com/badges/884a9f08-1d59-4b91-b74b-9e7d3bdce2f2/public_url',
   },
   { short: 'CAPT', name: 'Certified Android Penetration Tester', issuer: 'Mobile Hacking Lab', progress: 66 },
-  { short: 'CMPen-Android', name: 'Certified Mobile Application Penetration Tester', issuer: 'The SecOps Group' },
-  { short: 'CNSP', name: 'Certified Network Security Practitioner', issuer: 'The SecOps Group' },
-  { short: 'CAP', name: 'Certified AppSec Practitioner', issuer: 'The SecOps Group' },
-  { short: 'CBP', name: 'Certified Blockchain Practitioner', issuer: 'The SecOps Group' },
+  {
+    short: 'CMPen-Android',
+    name: 'Certified Mobile Pentester (Android)',
+    issuer: 'The SecOps Group',
+    issued: 'Nov 2024',
+    credentialId: '9298286',
+    verifyUrl: secOpsValidation,
+  },
+  {
+    short: 'CBP',
+    name: 'Certified Blockchain Practitioner',
+    issuer: 'The SecOps Group',
+    issued: 'Sep 2024',
+    credentialId: '9144401',
+    verifyUrl: secOpsValidation,
+  },
+  {
+    short: 'CAP',
+    name: 'Certified AppSec Practitioner',
+    issuer: 'The SecOps Group',
+    issued: 'Aug 2024',
+    credentialId: '9010248',
+    verifyUrl: secOpsValidation,
+  },
+  {
+    short: 'CNSP',
+    name: 'Certified Network Security Practitioner',
+    issuer: 'The SecOps Group',
+    issued: 'Nov 2023',
+    credentialId: '8110511',
+    verifyUrl: secOpsValidation,
+  },
 ];
 
 export const arsenal = [
