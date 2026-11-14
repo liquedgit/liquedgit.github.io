@@ -15,7 +15,7 @@ export const profile = {
   about: [
     'I am an offensive security engineer with 2+ years of hands-on penetration testing across web applications, APIs, Android, cloud, and AI/LLM systems. I approach every target the way an attacker would: map the attack surface, find the weakest trust boundary, and chain small flaws into impact that cannot be argued with.',
     'I currently work as a Product Security Engineer at a Confidential Startup Company, a multi-product SaaS provider, where I attack the platform end to end and drive findings through to verified fixes. My specialism is the newest attack surface in production: agentic AI systems, where prompt injection, tool abuse, and guardrail bypass turn helpful assistants into pivot points.',
-    'Outside work I compete in CTFs with the PETIR Cyber Security Team, author web and blockchain exploitation challenges for national competitions, and hunt bugs in private programmes.',
+    'Outside work I hunt bugs in private programmes. With the PETIR Cyber Security Team I competed in CTFs, placing Top 7 in Indonesia at PwC Hackaday 2024, and authored web and blockchain exploitation challenges for national competitions.',
   ],
 };
 
