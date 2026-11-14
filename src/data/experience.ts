@@ -37,7 +37,7 @@ export const experience: Role[] = [
   {
     role: 'Web Exploitation — CTF Player & Challenge Author',
     org: 'PETIR Cyber Security Team',
-    period: 'Apr 2024 — Aug 2025',
+    period: 'Apr 2024 — Dec 2025',
     points: [
       'Top 7 in Indonesia and Top 30 in Southeast Asia at PwC Hackaday 2024.',
       'Authored web and blockchain exploitation challenges for National Cyber Week, Beefest, and IFEST 2024.',
