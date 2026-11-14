@@ -1,4 +1,4 @@
-export type Category = 'Tooling' | 'CTF Challenge' | 'Exploit / PoC' | 'Vulnerable Lab';
+export type Category = 'Tooling' | 'Maintained Fork' | 'CTF Challenge' | 'Exploit / PoC' | 'Vulnerable Lab';
 
 export type Project = {
   name: string;
@@ -7,6 +7,8 @@ export type Project = {
   tags: string[];
   repo: string;
   link?: { label: string; url: string };
+  /** Original project, credited on forks. */
+  upstream?: { name: string; url: string };
 };
 
 const gh = (name: string) => `https://github.com/liquedgit/${name}`;
@@ -20,6 +22,24 @@ export const projects: Project[] = [
     tags: ['BAC / RBAC', 'Go', 'Kafka', 'TypeScript'],
     repo: gh('sentinel-flow'),
     link: { label: 'Docs', url: 'https://sentinel-flow-docs.pages.dev/docs/intro/' },
+  },
+  {
+    name: 'rootAVD',
+    category: 'Maintained Fork',
+    description:
+      'Maintained fork of the Android Studio AVD rooting script, unmaintained upstream since Oct 2024. Updated to Magisk v31.1 with API 36 arm64-v8a support, added the latest Magisk GitHub release to the version menu, and repointed self-update to the fork, so I can keep rooted emulators for mobile pentesting.',
+    tags: ['Android', 'Magisk', 'Shell'],
+    repo: gh('rootAVD'),
+    upstream: { name: 'newbit1/rootAVD', url: 'https://github.com/newbit1/rootAVD' },
+  },
+  {
+    name: 'reFlutter',
+    category: 'Maintained Fork',
+    description:
+      'Fork of the Flutter reverse engineering framework. Fixed per-ABI snapshot hash detection that broke multi-ABI APKs, added a fallback scan of extracted APK/IPA archives, and added a non-interactive mode for scripted and CI use.',
+    tags: ['Flutter', 'Reverse engineering', 'Python'],
+    repo: gh('reFlutter'),
+    upstream: { name: 'Impact-I/reFlutter', url: 'https://github.com/Impact-I/reFlutter' },
   },
   {
     name: "Diddy's Party",

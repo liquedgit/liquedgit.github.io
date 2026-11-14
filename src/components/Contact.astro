@@ -25,9 +25,14 @@ import { profile } from '../data/profile';
 </section>
 
 <footer class="border-t border-line">
-  <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 font-mono text-xs text-dim sm:flex-row sm:justify-between sm:px-6">
-    <p>© {new Date().getFullYear()} {profile.name}</p>
-    <p>Findings described at vulnerability-class level. No client data disclosed.</p>
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 font-mono text-xs text-dim sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <p>© {new Date().getFullYear()} {profile.name} · {profile.location}</p>
+    <ul class="flex flex-wrap gap-5">
+      <li><a href={profile.links.github} target="_blank" rel="noopener" class="hover:text-accent">GitHub</a></li>
+      <li><a href={profile.links.linkedin} target="_blank" rel="noopener" class="hover:text-accent">LinkedIn</a></li>
+      <li><a href={profile.links.hackthebox} target="_blank" rel="noopener" class="hover:text-accent">Hack The Box</a></li>
+      <li><a href="#top" class="hover:text-accent">Back to top ↑</a></li>
+    </ul>
   </div>
 </footer>
 

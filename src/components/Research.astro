@@ -2,7 +2,7 @@
 import SectionHeader from './SectionHeader.astro';
 import { projects, type Category } from '../data/projects';
 
-const categories: Category[] = ['Tooling', 'CTF Challenge', 'Exploit / PoC', 'Vulnerable Lab'];
+const categories: Category[] = ['Tooling', 'Maintained Fork', 'CTF Challenge', 'Exploit / PoC', 'Vulnerable Lab'];
 ---
 
 <section id="research" class="section border-t border-line">
@@ -10,7 +10,7 @@ const categories: Category[] = ['Tooling', 'CTF Challenge', 'Exploit / PoC', 'Vu
     index="04"
     label="research"
     title="Research, tooling & challenges"
-    lead="Detection tooling, exploits, and the CTF challenges I've written for national competitions."
+    lead="Detection tooling, maintained offensive tools, exploits, and the CTF challenges I've written for national competitions."
   />
 
   <div class="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
@@ -33,6 +33,14 @@ const categories: Category[] = ['Tooling', 'CTF Challenge', 'Exploit / PoC', 'Vu
         >
           <p class="font-mono text-[11px] tracking-wider text-accent uppercase">{p.category}</p>
           <h3 class="mt-2 text-lg font-semibold text-ink">{p.name}</h3>
+          {p.upstream && (
+            <p class="mt-1 font-mono text-xs text-dim">
+              fork of{' '}
+              <a href={p.upstream.url} target="_blank" rel="noopener" class="text-muted hover:text-accent">
+                {p.upstream.name}
+              </a>
+            </p>
+          )}
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>
           <div class="mt-5 flex flex-wrap gap-1.5">
             {p.tags.map((t) => (
