@@ -1,0 +1,15 @@
+---
+interface Props {
+  index: string;
+  label: string;
+  title: string;
+  lead?: string;
+}
+const { index, label, title, lead } = Astro.props;
+---
+
+<header class="max-w-2xl">
+  <p class="eyebrow">{index} // {label}</p>
+  <h2 class="heading">{title}</h2>
+  {lead && <p class="mt-4 text-muted leading-relaxed">{lead}</p>}
+</header>

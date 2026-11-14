@@ -1,0 +1,32 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { capabilities } from '../data/capabilities';
+---
+
+<section id="capabilities" class="section border-t border-line">
+  <SectionHeader
+    index="02"
+    label="capabilities"
+    title="Offensive capabilities"
+    lead="Every engagement aims at real impact: account takeover, cross-tenant access, data exfiltration. A finding only counts when it is proven, reproducible, and mapped to a recognised standard."
+  />
+  <div class="mt-12 grid gap-5 md:grid-cols-2">
+    {
+      capabilities.map((c) => (
+        <article class="card hover:border-accent-dim">
+          <h3 class="text-lg font-semibold text-ink">{c.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{c.summary}</p>
+          <ul class="mt-5 space-y-2">
+            {c.techniques.map((t) => (
+              <li class="flex gap-3 text-sm text-ink/90">
+                <span class="font-mono text-accent">›</span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-6 border-t border-line pt-4 font-mono text-xs text-dim">{c.standards}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

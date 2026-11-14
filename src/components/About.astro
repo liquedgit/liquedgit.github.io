@@ -1,0 +1,13 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { profile } from '../data/profile';
+---
+
+<section id="about" class="section">
+  <div class="grid gap-12 md:grid-cols-[1fr_1.4fr]">
+    <SectionHeader index="01" label="about" title="Thinking like the adversary, working for the defender." />
+    <div class="space-y-5 leading-relaxed text-muted">
+      {profile.about.map((p) => <p>{p}</p>)}
+    </div>
+  </div>
+</section>

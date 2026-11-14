@@ -1,0 +1,39 @@
+---
+import { profile } from '../data/profile';
+---
+
+<section id="contact" class="section border-t border-line">
+  <div class="card relative overflow-hidden p-8 sm:p-12">
+    <div class="grid-bg pointer-events-none absolute inset-0 opacity-60"></div>
+    <div class="relative max-w-2xl">
+      <p class="eyebrow">06 // contact</p>
+      <h2 class="heading">Have a target in scope?</h2>
+      <p class="mt-4 leading-relaxed text-muted">
+        Open to offensive security roles, penetration testing and AI red-teaming engagements, and international
+        opportunities with relocation or visa sponsorship.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a id="email-link" href="#contact" class="btn-primary" data-user={profile.emailParts[0]} data-domain={profile.emailParts[1]}>
+          Email me
+        </a>
+        <a href={profile.links.linkedin} class="btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href={profile.links.github} class="btn-ghost" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-line">
+  <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 font-mono text-xs text-dim sm:flex-row sm:justify-between sm:px-6">
+    <p>© {new Date().getFullYear()} {profile.name}</p>
+    <p>Findings described at vulnerability-class level. No client data disclosed.</p>
+  </div>
+</footer>
+
+<script>
+  // Assemble the address at runtime to keep it out of the static HTML scraped by bots.
+  const link = document.getElementById('email-link');
+  if (link) {
+    link.setAttribute('href', `mailto:${link.dataset.user}@${link.dataset.domain}`);
+  }
+</script>

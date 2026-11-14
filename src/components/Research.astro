@@ -1,0 +1,77 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { projects, type Category } from '../data/projects';
+
+const categories: Category[] = ['Tooling', 'CTF Challenge', 'Exploit / PoC', 'Vulnerable Lab'];
+---
+
+<section id="research" class="section border-t border-line">
+  <SectionHeader
+    index="04"
+    label="research"
+    title="Research, tooling & challenges"
+    lead="Detection tooling, exploits, and the CTF challenges I've written for national competitions."
+  />
+
+  <div class="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+    <button type="button" class="chip filter-btn cursor-pointer" data-filter="all" aria-pressed="true">All</button>
+    {
+      categories.map((c) => (
+        <button type="button" class="chip filter-btn cursor-pointer" data-filter={c} aria-pressed="false">
+          {c}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      projects.map((p, i) => (
+        <article
+          class:list={['card project flex flex-col hover:border-accent-dim', i === 0 && 'lg:col-span-2']}
+          data-category={p.category}
+        >
+          <p class="font-mono text-[11px] tracking-wider text-accent uppercase">{p.category}</p>
+          <h3 class="mt-2 text-lg font-semibold text-ink">{p.name}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            {p.tags.map((t) => (
+              <span class="chip">{t}</span>
+            ))}
+          </div>
+          <div class="mt-5 flex gap-4 border-t border-line pt-4 font-mono text-xs">
+            <a href={p.repo} target="_blank" rel="noopener" class="text-ink hover:text-accent">
+              Source ↗
+            </a>
+            {p.link && (
+              <a href={p.link.url} target="_blank" rel="noopener" class="text-ink hover:text-accent">
+                {p.link.label} ↗
+              </a>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .filter-btn[aria-pressed='true'] {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.project');
+  buttons.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      cards.forEach((c) => {
+        c.hidden = filter !== 'all' && c.dataset.category !== filter;
+      });
+    }),
+  );
+</script>
