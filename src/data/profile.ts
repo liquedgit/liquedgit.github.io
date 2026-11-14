@@ -10,6 +10,7 @@ export const profile = {
   links: {
     github: 'https://github.com/liquedgit',
     linkedin: 'https://www.linkedin.com/in/michael-bryan-chandra/',
+    hackthebox: 'https://profile.hackthebox.com/profile/019df41d-7329-7260-a405-6e64282d3dbe',
   },
   about: [
     'I am an offensive security engineer with 2+ years of hands-on penetration testing across web applications, APIs, Android, cloud, and AI/LLM systems. I approach every target the way an attacker would: map the attack surface, find the weakest trust boundary, and chain small flaws into impact that cannot be argued with.',
